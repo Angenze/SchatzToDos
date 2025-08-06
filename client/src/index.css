@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Ocean theme colors */
+  --ocean-50: hsl(207, 100%, 97%);
+  --ocean-500: hsl(207, 90%, 54%);
+  --ocean-600: hsl(207, 90%, 46%);
+  --ocean-700: hsl(207, 88%, 41%);
+  --ocean-900: hsl(207, 100%, 15%);
+  
+  --sand-100: hsl(33, 100%, 97%);
+  --sand-200: hsl(33, 82%, 80%);
+  --sand-300: hsl(33, 77%, 70%);
+  --sand-400: hsl(33, 74%, 60%);
+  
+  --coral-400: hsl(0, 100%, 75%);
+  --coral-500: hsl(0, 84%, 60%);
+  
+  --seafoam-400: hsl(176, 70%, 41%);
+  --seafoam-500: hsl(176, 77%, 47%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .ocean-bg {
+    background: linear-gradient(180deg, hsl(207, 90%, 54%) 0%, hsl(207, 90%, 46%) 50%, hsl(207, 100%, 15%) 100%);
+  }
+  
+  .beach-bg {
+    background: linear-gradient(180deg, hsl(207, 90%, 77%) 0%, hsl(176, 70%, 41%) 30%, hsl(33, 100%, 97%) 100%);
+  }
+  
+  .album-bg {
+    background: linear-gradient(135deg, hsl(20, 56%, 27%) 0%, hsl(22, 65%, 57%) 50%, hsl(33, 77%, 70%) 100%);
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer components {
+  .treasure-chest {
+    width: 120px;
+    height: 100px;
+    background: linear-gradient(145deg, hsl(20, 56%, 27%), hsl(22, 65%, 57%));
+    border-radius: 15px 15px 5px 5px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid hsl(20, 56%, 20%);
+  }
+  
+  .treasure-chest:hover {
+    transform: scale(1.05);
+  }
+  
+  .treasure-chest::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    right: 10px;
+    height: 20px;
+    background: linear-gradient(145deg, hsl(51, 100%, 50%), hsl(60, 100%, 75%));
+    border-radius: 10px;
+    border: 2px solid hsl(43, 74%, 49%);
+  }
+  
+  .treasure-chest::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    z-index: 2;
+  }
+  
+  .rarity-common {
+    border: 2px solid hsl(215, 20%, 65%);
+    background: linear-gradient(135deg, hsl(210, 40%, 95%), hsl(214, 32%, 91%));
+  }
+  
+  .rarity-rare {
+    border: 2px solid hsl(221, 83%, 53%);
+    background: linear-gradient(135deg, hsl(214, 95%, 93%), hsl(213, 97%, 87%));
+    box-shadow: 0 0 15px hsla(221, 83%, 53%, 0.3);
+  }
+  
+  .rarity-epic {
+    border: 2px solid hsl(271, 81%, 56%);
+    background: linear-gradient(135deg, hsl(270, 100%, 98%), hsl(270, 100%, 95%));
+    box-shadow: 0 0 20px hsla(271, 81%, 56%, 0.4);
+  }
+  
+  .collected {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .not-collected {
+    opacity: 0.3;
+    filter: grayscale(100%);
+  }
+  
+  .todo-item {
+    transition: all 0.3s ease;
+  }
+  
+  .todo-item.completed {
+    opacity: 0.6;
+    text-decoration: line-through;
+  }
+  
+  .navigation-bar {
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-treasure-open {
+    animation: treasureOpen 1s ease-in-out;
+  }
+  
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px); 
+    }
+    50% { 
+      transform: translateY(-10px); 
+    }
+  }
+  
+  @keyframes treasureOpen {
+    0% { 
+      transform: scale(1) rotate(0deg); 
+    }
+    50% { 
+      transform: scale(1.1) rotate(5deg); 
+    }
+    100% { 
+      transform: scale(1) rotate(0deg); 
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .treasure-chest {
+      width: 100px;
+      height: 80px;
+    }
+    
+    .collection-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
